@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Account Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-box { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 350px; text-align: center; }
+        .logo { font-size: 24px; font-weight: bold; color: #1a73e8; margin-bottom: 20px; }
+        input[type="email"], input[type="password"] { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background-color: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        button:hover { background-color: #1557b0; }
+        .warning { color: red; font-size: 14px; margin-top: 20px; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <div class="logo">SecurePortal</div>
+    <p>Sign in to continue to your dashboard</p>
+    
+    <form id="phishForm">
+        <input type="email" placeholder="Email or phone" required>
+        <input type="password" placeholder="Enter your password" required>
+        <button type="submit">Next</button>
+    </form>
+
+    <div id="warningMessage" class="warning">
+        <strong>⚠️ PHISHING ALERT!</strong><br>
+        This was a simulated security test for my major project. In a real attack, your password would have been stolen.
+    </div>
+</div>
+
+<script>
+    document.getElementById('phishForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // This stops the page from actually sending data anywhere
+        document.getElementById('phishForm').style.display = 'none'; // Hide the login form
+        document.getElementById('warningMessage').style.display = 'block'; // Show the warning
+    });
+</script>
+
+</body>
+</html>
